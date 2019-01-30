@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Word game </title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            form {
+                font-size: 1.5em;
+            }
+            .scrambled, input, button {
+                font-family: monospace;
+                font-size: 2em;
+            }
+            
+        </style>
+    </head>
+    <body>
+    
+    <h1>Word game!</h1>
+    <form id="game-form">
+        <label>
+            Unscramble these letters to find the word:<Br>
+            <span class="scrambled">YDNMOA</span>
+            <br>
+            <input type="text" size="10">
+        </label>
+        <button type="submit">Check</button>
+        <div id="result"></div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script>
+        // when the user submits the form,
+        $("#game-form").on("submit", function(event) {
+            event.preventDefault();
+        //   check that their answer is correct
+            var $answer = $(this).find("[type=text]");
+            var answer = $answer.val();
+            //   and show them appropriate message
+             
+            if (answer === "monday") {
+                $("#result").text("Correct")   
+                            .css("color", "green")
+            } else {
+                $("#result").text("Incorrect")
+                            .css("color", "red")
+            }
+        
+        });
+        
+    </script>
+    </body>
+</html> 

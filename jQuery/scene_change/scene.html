@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Scene change</title>
+        <style>
+        #leafers {
+            position: absolute;
+            top: 231px;
+            left: 370px;
+            width: 150px;
+        }
+            
+        </style>
+    </head>
+    <body>
+
+    <img id ="backgroundImg" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Champagne_Beach.jpg" id ="background" width ="700px">
+
+    <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png" id="leafers">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <h1>Leafers</h1>
+    <button id="resetButton">Reset</button>
+    <button id="devolveButton">Devolve</button>
+    <button id="evolveButton">Evolve</button>
+    <h1>Background</h1>
+    <button id="beachButton">Beach</button>
+    <button id="spaceButton">Space</button>
+    
+    <script>
+    
+    var playAudio = function() {
+        var $sound = $("<audio>")
+        $sound.attr("src", "https://www.kasandbox.org/programming-sounds/retro/coin.mp3")
+        $("body").append($sound);
+        $sound[0].play();
+    }
+    
+        $("#evolveButton").on("click", function(event) {
+           $("#leafers")
+                    .attr("src", "https://www.kasandbox.org/programming-images/avatars/leafers-tree.png")
+                    .css("position", "absolute")
+                    .css("top", "210px")
+                    .css("left", "370px")
+                    .css("width", "225px")
+            playAudio()
+        });
+        
+        $("#resetButton").on("click", function(event) {
+           $("#leafers")
+                    .attr("src", "https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png")
+                    .css("position", "absolute")
+                    .css("top", "231px")
+                    .css("left", "370px")
+                    .css("width", "150px")
+            
+            playAudio()
+        });
+        
+        $("#devolveButton").on("click", function(event) {
+           $("#leafers")
+                    .attr("src", "https://www.kasandbox.org/programming-images/avatars/leafers-seed.png")
+                    .css("width", "50px")
+                    .css("position", "absolute")
+                    .css("top", "310px")
+                    .css("left", "415px")
+            
+            playAudio()
+        });
+        
+        $("#beachButton").on("click", function(event) {
+            $("#backgroundImg")
+                    .attr("src", "https://upload.wikimedia.org/wikipedia/commons/5/58/Champagne_Beach.jpg")
+                    .attr("width", "700px")
+        });
+        
+        $("#spaceButton").on("click", function(event) {
+            $("#backgroundImg")
+                    .attr("src", "https://www.kasandbox.org/programming-images/landscapes/clouds-from-plane.png")
+                    .attr("width", "700px")
+        });
+    </script>
+    </body>
+</html> 
